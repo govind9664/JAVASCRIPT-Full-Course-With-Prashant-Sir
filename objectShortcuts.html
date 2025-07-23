@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Object Shortcuts</title>
+  </head>
+  <body>
+    <script>
+      //   let product = {
+      //     company: "Mango",
+      //     itemName: "Cotton stripped t-shirt",
+      //     price: 861,
+      //     displayPrice: function () {
+      //       return `${this.price}`;
+      //     },
+      //   };
+
+      // Destructuring
+      //   let company = product.company;
+      //   console.log(company);
+      // is same as
+      //   let { company, price } = product;
+      //   console.log(company);
+      //   console.log(price);
+
+      // Property Shorthand
+      //   let price = 861;
+      //   let product1 = {
+      //     company: "Mango",
+      //     itemName: "Cotton stripped t-shirt",
+      //     price,
+      //   };
+      //   console.log(product1);
+
+      // Method shorthand
+      let product = {
+        company: "Mango",
+        itemName: "Cotton stripped t-shirt",
+        price: 861,
+        displayPrice() {
+          return `${this.price}`;
+        },
+      };
+      console.log(product.displayPrice());
+    </script>
+  </body>
+</html>

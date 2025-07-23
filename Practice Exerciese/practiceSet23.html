@@ -1,0 +1,39 @@
+<!--Create a while loop that exists after counting 5 prime numbers-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Practice Set 23</title>
+  </head>
+  <body>
+    <script>
+      function checkPrimeOrNot(num) {
+        let i = 2;
+        while (i <= num / 2) {
+          if (num % i === 0) {
+            return false;
+          }
+          i++;
+        }
+        return true;
+      }
+      console.log(checkPrimeOrNot(5));
+      console.log(checkPrimeOrNot(53));
+      console.log(checkPrimeOrNot(75));
+      console.log(checkPrimeOrNot(57));
+      console.log(checkPrimeOrNot(35));
+
+      let num = 2;
+      let i = 0;
+      while (true) {
+        if (checkPrimeOrNot(num)) {
+          console.log(num);
+          i++;
+          if (i >= 5) {
+            break;
+          }
+        }
+        num++;
+      }
+    </script>
+  </body>
+</html>

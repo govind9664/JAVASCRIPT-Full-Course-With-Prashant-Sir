@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Inside Object</title>
+  </head>
+  <body>
+    <script>
+      let product = {
+        company: "Mango",
+        price: 850,
+        "item-name": "T-shirts",
+        displayPrice: function () {
+          console.log(`Price of the product is Rupees${this.price}`);
+        },
+      };
+
+      product.displayPrice();
+    </script>
+  </body>
+</html>

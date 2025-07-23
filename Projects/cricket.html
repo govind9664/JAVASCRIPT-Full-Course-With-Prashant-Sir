@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cricket Game</title>
+    <link rel="stylesheet" href="cricket.css" />
+  </head>
+  <body>
+    <h1>Bat Ball Stump Game</h1>
+    <button
+      class="choice-button"
+      onclick="
+    // console.log('You have choosen Bat');
+    // This will genarate random number between 0 and 3
+    let computerChoice=genarateComputerChoice();
+    let resultMsg=getResult('Bat',computerChoice);
+    showResult('Bat',computerChoice,resultMsg);
+      "
+    >
+      <img src="bat.png" alt="Bat images" class="choice-image" />
+    </button>
+
+    <button
+      class="choice-button"
+      onclick="
+    computerChoice=genarateComputerChoice();
+    resultMsg=getResult('Ball',computerChoice);
+    showResult('Ball',computerChoice,resultMsg);
+      "
+    >
+      <img src="ball.png" alt="Ball images" class="choice-image" />
+    </button>
+    <button
+      class="choice-button"
+      onclick="
+    computerChoice=genarateComputerChoice();
+    resultMsg=getResult('Stump',computerChoice);
+    showResult('Stump',computerChoice,resultMsg);
+      "
+    >
+      <img src="stump.png" alt="Stump images" class="choice-image" />
+    </button>
+
+    <h3 id="user-move"></h3>
+    <h3 id="computer-move"></h3>
+    <h3 id="result"></h3>
+    <h3 id="score"></h3>
+
+    <button
+      onclick="localStorage.clear()
+    resetScore();"
+    >
+      Reset
+    </button>
+
+    <script>
+      let scoreStr = localStorage.getItem("Score");
+      let score;
+      resetScore(scoreStr);
+      function resetScore(scoreStr) {
+        score = scoreStr
+          ? JSON.parse(scoreStr)
+          : {
+              won: 0,
+              lost: 0,
+              tie: 0,
+            };
+        score.displayScore = function () {
+          return `Score : Won:${score.won}, Lost:${score.lost}, Tie:${score.tie}`;
+        };
+        showResult();
+      }
+      function genarateComputerChoice() {
+        let randomNumber = Math.random() * 3;
+        if (randomNumber > 0 && randomNumber <= 1) {
+          return "Bat";
+          // console.log('Computer choice is Bat');
+        } else if (randomNumber > 1 && randomNumber <= 2) {
+          return "Ball";
+          // console.log('Computer choice is Ball');
+        } else {
+          return "Stump";
+          // console.log('Computer choice is Stump');
+        }
+      }
+      function getResult(userChoice, computerChoice) {
+        if (userChoice === "Bat") {
+          if (computerChoice === "Bat") {
+            score.tie++;
+            return `It's a tie`;
+          } else if (computerChoice === "Ball") {
+            score.won++;
+            return "User won.";
+          } else {
+            score.lost++;
+            return "Computer won.";
+          }
+        } else if (userChoice === "Ball") {
+          if (computerChoice === userChoice) {
+            score.tie++;
+            return `It's a tie`;
+          } else if (computerChoice === "Bat") {
+            score.lost++;
+            return "Computer won.";
+          } else {
+            score.won++;
+            return "User won.";
+          }
+        } else if (userChoice === "Stump") {
+          if (computerChoice === userChoice) {
+            score.tie++;
+            return `It's a tie`;
+          } else if (computerChoice === "Bat") {
+            score.won++;
+            return "User won.";
+          } else {
+            score.lost++;
+            return "Computer won.";
+          }
+        }
+      }
+      function showResult(userChoice, computerChoice, resultMsg) {
+        localStorage.setItem("Score", JSON.stringify(score));
+
+        document.querySelector("#user-move").innerText = userChoice
+          ? `Your choice is ${userChoice}`
+          : "";
+        document.querySelector("#computer-move").innerText = computerChoice
+          ? `Computer choice is ${userChoice}`
+          : "";
+        document.querySelector("#result").innerText = resultMsg || "";
+        document.querySelector("#score").innerText = score.displayScore();
+      }
+    </script>
+  </body>
+</html>

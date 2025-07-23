@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Practice Set 16</title>
+  </head>
+  <body>
+    <script>
+      let product = {
+        name: "Jeans",
+        size: "S",
+        fit: "Slim fit",
+        "delivery-time": "Your Product is Delivered Today",
+      };
+      console.log(product);
+
+      //   let copyProduct = product;
+      //   console.log(product);
+      //   copyProduct.size = "M";
+      //   console.log(product);
+      //   copyProduct.fit = "Regulat fit";
+      //   console.log(product);
+
+      //   console.log(product["delivery-time"]);
+
+      //   let obj = {
+      //     message: "Good Job",
+      //     status: "Completed",
+      //   };
+
+      //   let { message, status } = obj;
+      //   console.log(message);
+      //   console.log(status);
+
+      let product1 = {
+        name: "Jeans",
+        size: "S",
+        fit: "Slim fit",
+      };
+
+      let product2 = {
+        name: "Jeans",
+        size: "S",
+        fit: "Slim fit",
+      };
+      function isIdenticalProduct(product1, product2) {
+        if (typeof product1 !== "object" || typeof product2 !== "object") {
+          console.warn("Parameter passed was not an object");
+          return false;
+        }
+        if (product1 === product2) {
+          return true;
+        }
+
+        if (
+          product1.name === product2.name &&
+          product1.size === product2.size &&
+          product1.fit === product2.fit
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(isIdenticalProduct(product, ""));
+      console.log(isIdenticalProduct(product, product));
+      console.log(isIdenticalProduct(product, product2));
+      console.log(isIdenticalProduct(product2, product1));
+      console.log(isIdenticalProduct(product1, product2));
+    </script>
+  </body>
+</html>

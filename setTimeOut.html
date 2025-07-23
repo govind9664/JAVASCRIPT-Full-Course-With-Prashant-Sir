@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Set TimeOut</title>
+  </head>
+  <body>
+    <script>
+      let alarm = () =>
+        console.log(`Subaha ho gayi alasi , Uth jaao. ${new Date()}`);
+      //   let timerId = setTimeout(alarm, 1000);
+      //   console.log(`Alaram set with timerId : ${timerId}`);
+      //   clearTimeout(timerId);
+
+      let intervalId = setInterval(alarm, 1000);
+      clearInterval(intervalId);
+    </script>
+  </body>
+</html>

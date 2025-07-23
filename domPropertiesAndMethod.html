@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOM Properties And Method</title>
+  </head>
+  <body>
+    <div class="my-div">DOM Properties And Methods</div>
+    <br />
+    <script>
+      // DOM And Element Properties
+      console.log(document.location);
+      console.log(document.title);
+      console.log(document.links);
+      console.log(document.domain);
+
+      // DOM And Element Method
+      let button = document.createElement("Button");
+      button.innerText = "Click Me";
+      document.querySelector(".my-div").appendChild(button);
+      document.querySelector(".my-div").removeChild(button);
+    </script>
+  </body>
+</html>

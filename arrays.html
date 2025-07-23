@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      //   let numbers = [1, 2, 3, 4, 5];
+      //   console.log(numbers);
+      //   console.log(numbers[3]);
+      //   let obj = { value: 500 };
+      let num = [1, true, null, "Mahakal"];
+      console.log(num[2]);
+      console.log(typeof num);
+
+      //   console.log(Array.isArray(obj));
+      //   console.log(Array.isArray(num));
+      //   console.log(numbers.length);
+
+      // Push / Pop - Add or Remove to end
+      let arr = [1, 5, 2, 6, 3, 4, 7];
+      console.log(arr);
+      //   arr.push(5);
+      //   console.log(arr);
+      //   arr.pop();
+      //   console.log(arr);
+
+      // Shift / Unshift - Add or remove from front
+      // arr.unshift(10);
+      // console.log(arr);
+      //   arr.shift();
+      //   console.log(arr);
+
+      // Splice - Add or remove elements
+      arr.splice(2, 3); // (index, count)
+      console.log(arr);
+
+      // Slice - Copy elements
+      let newArr = arr.slice(1, 4);
+      console.log(newArr);
+
+      //Reverse;
+      // arr.reverse();
+      // console.log(arr);
+
+      // toString - Convert to string
+      //   console.log(arr.toString());
+
+      // sort - Sort elements
+      //   arr.sort();
+      //   console.log(arr);
+
+      // valueOf - Get array itself
+      console.log(arr.valueOf());
+
+      // De-structuring
+      let [a, b, c, d] = arr;
+      console.log(a + " " + b + " " + c + " " + d);
+    </script>
+  </body>
+</html>

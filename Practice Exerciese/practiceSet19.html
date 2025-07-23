@@ -1,0 +1,49 @@
+<!--Create a Button which shows the number how many times it has been pressed.
+Also , it has different colors for when it has been pressed odd or even times.
+The click count should also survive browser refresh-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Practice Set 19</title>
+    <style>
+      button {
+        height: 50px;
+        width: 50px;
+        font-size: 25px;
+        border: none;
+        border-radius: 5px;
+      }
+      .js-odd {
+        background-color: red;
+      }
+      .js-even {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="my-button" onclick="buttonPressed();">0</button>
+    <script>
+      let noOfTimesClick = localStorage.getItem("noOfTimesClick") || 0;
+
+      function buttonPressed() {
+        noOfTimesClick++;
+        localStorage.setItem("noOfTimesClick", noOfTimesClick);
+        updateButton();
+      }
+
+      function updateButton() {
+        if (noOfTimesClick % 2 === 0) {
+          document.querySelector("#my-button").classList.remove("js-odd");
+          document.querySelector("#my-button").classList.add("js-even");
+        } else {
+          document.querySelector("#my-button").classList.remove("js-even");
+          document.querySelector("#my-button").classList.add("js-odd");
+        }
+        document.querySelector("#my-button").innerText = noOfTimesClick;
+      }
+
+      updateButton();
+    </script>
+  </body>
+</html>

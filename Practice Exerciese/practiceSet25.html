@@ -1,0 +1,18 @@
+<!--Using continue only print positive numbers from the given array [1,-6,5,7,-98]-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Practice Set 25</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, -6, 5, 7, -98];
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+          continue;
+        }
+        console.log(arr[i]);
+      }
+    </script>
+  </body>
+</html>

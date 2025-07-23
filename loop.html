@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Loop</title>
+  </head>
+  <body>
+    <script>
+      // While loop
+      let x = 1;
+      while (x <= 10) {
+        console.log(`x : ${x}`);
+        x++;
+      }
+
+      // Do while loop
+      let y = 2,
+        count = 1;
+      do {
+        console.log(`${y} * ${count} : ${y * count}`);
+        count++;
+      } while (count <= 10);
+
+      // For loop
+      let arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+    </script>
+  </body>
+</html>
